@@ -22,7 +22,6 @@ env:
 
 
 jobs:
-
   environment:
     runs-on: ubuntu-latest
     steps:
@@ -74,9 +73,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Eliminar build redundante"
-        uses: styfle/cancel-workflow-action
+        uses: styfle/cancel-workflow-action@0.12.1
         with:
           access_token: ${{ github.token }}
+
 
       - name: "Mostrar imagnes"
         run: |
