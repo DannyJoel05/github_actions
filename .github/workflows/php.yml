@@ -9,6 +9,11 @@ on:
 permissions:
   contents: read
 
+env:
+  database: postgres
+  user: postgres
+  password: postgres
+
 jobs:
   build:
 
@@ -19,4 +24,11 @@ jobs:
       run: |
         echo "Imagenes disponibles:"
         docker images
+    
+    - name: "Mostar enviroment"
+      run: |
+        echo "Variables de entorno:" ${{ toJson(env.database) }}
+        echo "Variables de user:" ${{ toJson(env.user) }}
+        echo "Variables de password:" ${{ toJson(env.password) }}
+        
 
