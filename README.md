@@ -1,0 +1,1 @@
+[![PHP Composer](https://github.com/DannyJoel05/github_actions/actions/workflows/php.yml/badge.svg)](https://github.com/DannyJoel05/github_actions/actions/workflows/php.yml)
