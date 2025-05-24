@@ -12,7 +12,10 @@ permissions:
 env:
   database: postgres
   user: postgres
-  password: postgres
+  password2: postgres
+
+  username: ${{ secrets.USERNAME }}
+  password: ${{ secrets.PASSWORD }}
 
 jobs:
   build:
@@ -29,7 +32,7 @@ jobs:
       run: |
         echo "Variables de entorno:" ${{ toJson(env.database) }}
         echo "Variables de user:" ${{ toJson(env.user) }}
-        echo "Variables de password:" ${{ toJson(env.password) }}
+        echo "Variables de password:" ${{ toJson(env.password2) }}
     
     - name: "Mostrar variables de github"
       run: |
@@ -38,5 +41,12 @@ jobs:
         echo "GITHUB_REPOSITORY: ${{ toJson(github.repository) }}"
         echo "GITHUB_REF: ${{ toJson(github.ref) }}"
         echo "GITHUB_ENV: ${{ toJson(github.env) }}"
+        echo "GITHUB_ACTOR: ${{ toJson(github.actor) }}"
+    
+    - name: "Mostrar variables de SECRETS"
+      run: |
+        echo "Variables de secrets:"
+        echo "USERNAME: ${{ env.USERNAME }}"
+        echo "PASSWORD: ${{ env.PASSWORD }}"
 
 
