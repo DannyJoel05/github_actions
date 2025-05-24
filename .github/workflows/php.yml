@@ -65,7 +65,7 @@ jobs:
 
     - name: "Revisar archivo"
       run: |
-        echo ls -l
+        ls -l
 
       
 
