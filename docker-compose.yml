@@ -1,0 +1,18 @@
+services:
+  php:
+    container_name: CACEP_COREFINANCE_CONTAINER
+    restart: always
+    image: core_finance:1.0
+    build: .
+    ports:
+      - 80:80
+    env_file:
+      - .env
+    volumes:
+      - .:/var/www/html/cacep
+      - .env:/var/www/html/.env
+
+volumes:
+  cacep: {}
+  config: {}
+  .env: {}

@@ -1,0 +1,8 @@
+{
+    "name": "admin/nuevocore",
+    "description": "finantix",
+    "require": {
+        "phpoffice/phpspreadsheet": "^2.0",
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
