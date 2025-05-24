@@ -17,6 +17,9 @@ env:
   username: ${{ secrets.USERNAME }}
   password: ${{ secrets.PASSWORD }}
 
+  language: ${{ vars.LANGUAGE }}
+  developer: ${{ vars.DESARROLLADOR }}
+
 jobs:
   build:
 
@@ -43,10 +46,16 @@ jobs:
         echo "GITHUB_ENV: ${{ toJson(github.env) }}"
         echo "GITHUB_ACTOR: ${{ toJson(github.actor) }}"
     
-    - name: "Mostrar variables de SECRETS"
+    - name: "Mostrar variables de SECRETS (hidden)"
       run: |
         echo "Variables de secrets:"
         echo "USERNAME: ${{ env.USERNAME }}"
         echo "PASSWORD: ${{ env.PASSWORD }}"
+    
+    - name: "Mostar variables de VARIABLES (show)"
+      run: |
+        echo "Variables de variables:"
+        echo "language: ${{ env.language }}"
+        echo "developer: ${{ env.developer }}"
 
 
