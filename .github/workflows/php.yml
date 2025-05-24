@@ -57,5 +57,16 @@ jobs:
         echo "Variables de variables:"
         echo "language: ${{ env.language }}"
         echo "developer: ${{ env.developer }}"
+    
+    - name: "Acceder al repositorio"
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: "Revisar archivo"
+      run: |
+        echo ls -la
+
+      
 
 
