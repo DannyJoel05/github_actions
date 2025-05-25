@@ -91,7 +91,7 @@ jobs:
       
       - name: Dar permisos a la carpeta
         run: |
-          sudo chown -R github:www-data /var/www/html/cacep
+          sudo chown -R www-data:www-data /var/www/html/cacep/
           sudo chmod -R 775 /var/www/html/cacep
 
       
