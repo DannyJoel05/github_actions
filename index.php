@@ -12,6 +12,7 @@
 
 <body>
     <?php
+    // Load environment variables from .env file
     // This is a simple PHP script
     echo "<h1>Hello, World!</h1>";
     echo '¡Mi nombre de usuario es ' . $_ENV["USER"] . '!';
