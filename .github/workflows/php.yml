@@ -90,7 +90,6 @@ jobs:
     - name: Copy files to /var/www/html/cacep/
       run: |
         sudo cp -r * /var/www/html/cacep/
-        # Opcional: puedes agregar permisos si es necesario
         sudo chown -R www-data:www-data /var/www/html/cacep/
 
     - name: "Revisar archivo"
