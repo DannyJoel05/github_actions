@@ -23,7 +23,7 @@ env:
 
 jobs:
   environment:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: "Mostrar variables de entorno"
         run: |
@@ -70,7 +70,7 @@ jobs:
 
   build:
     needs: [environment]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: "Eliminar build redundante"
         uses: styfle/cancel-workflow-action@0.12.1
@@ -85,7 +85,7 @@ jobs:
 
   deploy:
     needs: [build]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: "Acceder al repositorio"
       uses: actions/checkout@v4
