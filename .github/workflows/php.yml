@@ -76,5 +76,5 @@ jobs:
 
       - name: Deploy to Apache folder
         run: |
-          cp -r * /var/www/html/cacep/
+          sudo cp -r * /var/www/html/cacep/
           chown -R www-data:www-data /var/www/html/cacep/
