@@ -90,9 +90,7 @@ jobs:
           ls -la ${{ github.workspace }}
       
       - name: Dar permisos a la carpeta
-        run: |
-          sudo chown -R www-data:www-data /var/www/html/cacep/
-          sudo chmod -R 775 /var/www/html/cacep
+        run: sudo chmod -R 775 /var/www/html/cacep
 
       
       - name: Create .env file
