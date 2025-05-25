@@ -15,6 +15,8 @@
     <?php
     // Cargar el archivo .env
     $env = parse_ini_file(__DIR__ . '/.env');
+    echo '<pre>' . print_r($env, true) . '</pre>';
+    echo $env;
     // Load environment variables from .env file
     // This is a simple PHP script
     echo "<h1>Hello, World!</h1>";

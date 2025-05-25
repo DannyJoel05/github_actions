@@ -114,4 +114,9 @@ jobs:
             --exclude='README.md' \
             "${{ github.workspace }}/" /var/www/html/cacep/
           sudo chown -R www-data:www-data /var/www/html/cacep/
+      
+      - name: Listar archivos en /var/www/html/cacep/
+        run: |
+          echo "Archivos en /var/www/html/cacep/:"
+          ls -la /var/www/html/cacep/
 
