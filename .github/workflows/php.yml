@@ -2,8 +2,23 @@ name: Deploy to Apache folder
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+env:
+  database: postgres
+  user: postgres
+  password2: postgres
+
+  username: ${{ secrets.USERNAME }}
+  password: ${{ secrets.PASSWORD }}
+
+  language: ${{ vars.LANGUAGE }}
+  developer: ${{ vars.DESARROLLADOR }}
 
 jobs:
   environment:
