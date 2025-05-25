@@ -50,7 +50,7 @@ jobs:
 
       - name: Desplegar dentro de la carpeta var/www/html
         run: |
-          sudo rsync -av --delete \
+          rsync -av --delete \
             --exclude='.git' \
             --exclude='.github' \
             --exclude='.env.example' \

@@ -11,10 +11,10 @@
 
 <body>
     <?php
-
+// Cargar el archivo .env
 $env = parse_ini_file(__DIR__ . '/.env');
 
-
+// Asignar variables al entorno
 foreach ($env as $key => $value) {
     $_ENV[$key] = $value;
     putenv("$key=$value");
