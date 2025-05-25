@@ -13,6 +13,8 @@
 <body>
     <h1>Bienvenidos Danny 2</h1>
     <?php
+    // Cargar el archivo .env
+    $env = parse_ini_file(__DIR__ . '/.env');
     // Load environment variables from .env file
     // This is a simple PHP script
     echo "<h1>Hello, World!</h1>";

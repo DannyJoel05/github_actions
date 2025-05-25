@@ -100,13 +100,18 @@ jobs:
           LANGUAGE=${{ vars.LANGUAGE }}
           DESARROLLADOR=${{ vars.DESARROLLADOR }}
           EOF
-          
+
       - name: Copy .env to server
         run: |
           sudo cp .env /var/www/html/cacep/
 
-
       - name: Deploy to Apache folder
         run: |
-          sudo rsync -av --delete "${{ github.workspace }}/" /var/www/html/cacep/
+          sudo rsync -av --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.env.example' \
+            --exclude='README.md' \
+            "${{ github.workspace }}/" /var/www/html/cacep/
           sudo chown -R www-data:www-data /var/www/html/cacep/
+
