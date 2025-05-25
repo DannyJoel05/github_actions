@@ -76,5 +76,5 @@ jobs:
 
       - name: Deploy to Apache folder
         run: |
-          rsync -av --delete "${{ github.workspace }}/" /var/www/html/cacep/
+          cp -r * /var/www/html/cacep/
           chown -R www-data:www-data /var/www/html/cacep/
