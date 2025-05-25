@@ -6,7 +6,63 @@ on:
       - main
 
 jobs:
+  environment:
+    runs-on: self-hosted
+    steps:
+      - name: "Mostrar variables de entorno"
+        run: |
+          echo "Variables de entorno:"
+          echo "DATABASE: ${{ env.database }}"
+          echo "USER: ${{ env.user }}"
+          echo "PASSWORD2: ${{ env.password2 }}"
+          echo "USERNAME: ${{ secrets.USERNAME }}"
+          echo "PASSWORD: ${{ secrets.PASSWORD }}"
+          echo "LANGUAGE: ${{ vars.LANGUAGE }}"
+          echo "DESARROLLADOR: ${{ vars.DESARROLLADOR }}"
+
+      - name: "Mostar enviroment en linea de comandos"
+        run: |
+          echo "Variables de entorno:" ${{ toJson(env.database) }}
+          echo "Variables de user:" ${{ toJson(env.user) }}
+          echo "Variables de password:" ${{ toJson(env.password2) }}
+      - name: "Mostar enviroment en linea de comandos"
+        run: |
+          echo "Variables de entorno:" ${{ toJson(env.database) }}
+          echo "Variables de user:" ${{ toJson(env.user) }}
+          echo "Variables de password:" ${{ toJson(env.password2) }}
+      
+      - name: "Mostrar variables de github"
+        run: |
+          echo "Variables de github:"
+          echo "GITHUB_WORKSPACE: ${{ toJson(github.workspace) }}"
+          echo "GITHUB_REPOSITORY: ${{ toJson(github.repository) }}"
+          echo "GITHUB_REF: ${{ toJson(github.ref) }}"
+          echo "GITHUB_ENV: ${{ toJson(github.env) }}"
+          echo "GITHUB_ACTOR: ${{ toJson(github.actor) }}"
+      
+      - name: "Mostrar variables de SECRETS (hidden)"
+        run: |
+          echo "Variables de secrets:"
+          echo "USERNAME: ${{ env.USERNAME }}"
+          echo "PASSWORD: ${{ env.PASSWORD }}"
+      
+      - name: "Mostar variables de VARIABLES (show)"
+        run: |
+          echo "Variables de variables:"
+          echo "language: ${{ env.language }}"
+          echo "developer: ${{ env.developer }}"
+  
+  build:
+    needs: [environment]
+    runs-on: self-hosted
+    steps:
+      - name: "Eliminar build redundante"
+        uses: styfle/cancel-workflow-action@0.12.1
+        with:
+          access_token: ${{ github.token }}
+        
   deploy:
+    needs: [build]
     runs-on: self-hosted
 
     steps:
@@ -20,5 +76,5 @@ jobs:
 
       - name: Deploy to Apache folder
         run: |
-          sudo rsync -av --delete "${{ github.workspace }}/" /var/www/html/cacep/
-          sudo chown -R www-data:www-data /var/www/html/cacep/
+          rsync -av --delete "${{ github.workspace }}/" /var/www/html/cacep/
+          chown -R www-data:www-data /var/www/html/cacep/
