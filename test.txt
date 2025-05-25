@@ -39,3 +39,6 @@ jobs:
     #   run: composer run-script test
     # nohup ./run.sh &> runner.log &
     # 192.168.1.24
+    #sudo ./svc.sh install
+#sudo ./svc.sh start
+#./svc.sh stop

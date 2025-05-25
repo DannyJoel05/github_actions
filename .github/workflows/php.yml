@@ -60,3 +60,6 @@ jobs:
       - name: Listar archivos en /var/www/html/${{ env.proyecto }}/
         run: ls -la /var/www/html/${{ env.proyecto }}/
 
+      - name: Fin del despliegue
+        run: echo "Despliegue finalizado en /var/www/html/${{ env.proyecto }}/"
+
