@@ -78,11 +78,6 @@ jobs:
           access_token: ${{ github.token }}
 
 
-      - name: "Mostrar imagnes"
-        run: |
-          echo "Imagenes disponibles:"
-          docker images
-
   deploy:
     needs: [build]
     runs-on: self-hosted
