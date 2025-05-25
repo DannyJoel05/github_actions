@@ -88,6 +88,23 @@ jobs:
         run: |
           echo "Working dir: ${{ github.workspace }}"
           ls -la ${{ github.workspace }}
+      
+      - name: Create .env file
+        run: |
+          cat <<EOF > .env
+          DATABASE=postgres
+          USER=postgres
+          PASSWORD2=postgres
+          USERNAME=${{ secrets.USERNAME }}
+          PASSWORD=${{ secrets.PASSWORD }}
+          LANGUAGE=${{ vars.LANGUAGE }}
+          DESARROLLADOR=${{ vars.DESARROLLADOR }}
+          EOF
+          
+      - name: Copy .env to server
+        run: |
+          sudo cp .env /var/www/html/cacep/
+
 
       - name: Deploy to Apache folder
         run: |

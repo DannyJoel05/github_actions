@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <h1>Bienvenidos Danny</h1>
+    <h1>Bienvenidos Danny 2</h1>
     <?php
     // Load environment variables from .env file
     // This is a simple PHP script
